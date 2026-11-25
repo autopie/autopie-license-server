@@ -1,0 +1,17 @@
+version: 1.0
+runtime: python311
+build:
+  commands:
+    build:
+      - echo "Zero-dependency Python prototype - no pip install needed"
+run:
+  runtime-version: 3.11
+  command: python3 -u server.py
+  network:
+    port: 8790
+    env: PORT
+  env:
+    - name: HOST
+      value: "0.0.0.0"
+    - name: DATA_DIR
+      value: "/tmp/autopie-license-state"
